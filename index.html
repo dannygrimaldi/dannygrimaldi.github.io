@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cena de Aniversario</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #111;
+    color: white;
+    overflow: hidden;
+}
+
+/* ===== FONDO ANIMADO ===== */
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    bottom: -10%;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    to {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* ===== SLIDES ===== */
+.slide {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    animation: fadeSlide 1.5s ease;
+}
+
+.slide.active {
+    display: flex;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TEXTO ===== */
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+#countdown {
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+/* ===== FONDOS ===== */
+.romantic {
+    background: linear-gradient(135deg, rgba(90,15,46,0.9), rgba(26,26,26,0.9));
+}
+
+.soft {
+    background: linear-gradient(135deg, rgba(44,44,84,0.9), rgba(0,0,0,0.9));
+}
+</style>
+</head>
+
+<body>
+
+<!-- FONDO ANIMADO -->
+<div class="background" id="background"></div>
+
+<!-- Diapositiva 1 -->
+<div class="slide active romantic">
+    <h1>Este 26 de Diciembre Tienes una cita</h1>
+    <p>Una noche especial para celebrar nuestro amor bonito</p>
+</div>
+
+<!-- Diapositiva 2 -->
+<div class="slide soft">
+    <h2>Falta muy poco...</h2>
+    <div id="countdown">Cargando...</div>
+</div>
+
+<!-- Diapositiva 3 -->
+<div class="slide romantic">
+    <h2>Detalles</h2>
+    <p>📅 Fecha: 26 de Diciembre 2025</p>
+    <p>🚕 Uber: 7:30 PM</p>
+    <p>⏰ Hora: 8:00 PM</p>
+    <p>🍽️ Maruchans</p>
+    <p>* Prepara la cámara 📸</p>
+</div>
+
+<!-- Diapositiva 4 -->
+<div class="slide soft">
+    <h1>Gracias por cada momento juntos</h1>
+    <p>Gracias por estar a mi lado todo este tiempo</p>
+    <p>Te amo mucho mi Chico ❤️</p>
+</div>
+
+<script>
+// ===== CUENTA REGRESIVA =====
+const eventDate = new Date("2025-12-26T20:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = Math.abs(eventDate - now);
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ===== SLIDES AUTOMÁTICAS =====
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+setInterval(() => {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+}, 6000);
+
+// ===== CORAZONES FLOTANDO =====
+const background = document.getElementById("background");
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+
+    background.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
+    
