@@ -259,17 +259,6 @@ main {
   z-index: 1;
 }
 
-.countdown-item,
-.paper-card,
-.faq-list details,
-.rsvp-form input,
-.rsvp-form select,
-.btn-ghost {
-  background:
-    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0) 44%),
-    linear-gradient(155deg, rgba(255, 255, 255, 0.72), rgba(243, 236, 246, 0.58));
-}
-
 .hero {
   margin-top: 1.3rem;
   display: grid;
@@ -612,6 +601,17 @@ h2 {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.72);
   padding: 0.7rem 0.85rem;
+}
+
+.countdown-item,
+.paper-card,
+.faq-list details,
+.rsvp-form input,
+.rsvp-form select,
+.btn-ghost {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0) 44%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.72), rgba(243, 236, 246, 0.58));
 }
 
 .faq-list summary {
