@@ -1,311 +1,260 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Cena de Aniversario</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #111;
-    color: white;
-    overflow: hidden;
-}
-
-/* ===== FONDO ANIMADO ===== */
-.background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.heart {
-    position: absolute;
-    bottom: -10%;
-    font-size: 20px;
-    animation: floatUp linear infinite;
-    opacity: 0.7;
-}
-
-@keyframes floatUp {
-    from {
-        transform: translateY(0) scale(1);
-        opacity: 0.8;
-    }
-    to {
-        transform: translateY(-120vh) scale(1.5);
-        opacity: 0;
-    }
-}
-
-/* ===== SLIDES ===== */
-.slide {
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-    animation: fadeSlide 1.5s ease;
-}
-
-.slide.active {
-    display: flex;
-}
-
-@keyframes fadeSlide {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== TEXTO ===== */
-h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 1.5em;
-}
-
-#countdown {
-    font-size: 2.5em;
-    letter-spacing: 2px;
-    margin-top: 20px;
-}
-
-/* ===== FONDOS ===== */
-.romantic {
-    background: linear-gradient(135deg, rgba(90,15,46,0.9), rgba(26,26,26,0.9));
-}
-
-.soft {
-    background: linear-gradient(135deg, rgba(44,44,84,0.9), rgba(0,0,0,0.9));
-}
-/* ===== SLIDE FUEGOS ARTIFICIALES ===== */
-.fireworks-slide {
-    background: radial-gradient(circle at bottom, #1a001a, #000);
-    position: relative;
-    overflow: hidden;
-}
-
-#fireworks {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.anniversary-text {
-    position: relative;
-    z-index: 2;
-    font-size: 3.5em;
-    font-weight: bold;
-    text-align: center;
-    background: linear-gradient(45deg, #ff4d6d, #ffd166, #ff4d6d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: glow 2s ease-in-out infinite;
-}
-
-.anniversary-text span {
-    display: block;
-    font-size: 0.45em;
-    margin-top: 15px;
-    color: #fff;
-    -webkit-text-fill-color: white;
-}
-
-@keyframes glow {
-    0%, 100% { text-shadow: 0 0 10px #ff4d6d; }
-    50% { text-shadow: 0 0 25px #ffd166; }
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- FONDO ANIMADO -->
-<div class="background" id="background"></div>
-
-<!-- Diapositiva 1 -->
-<div class="slide active romantic">
-    <h1>Este 26 de Diciembre Tienes una cita</h1>
-    <p>Una noche especial para celebrar nuestro amor bonito</p>
-</div>
-
-<!-- Diapositiva 2 -->
-<div class="slide soft">
-    <h2>Falta muy poco...</h2>
-    <div id="countdown">Cargando...</div>
-</div>
-
-<!-- Diapositiva 3 -->
-<div class="slide romantic">
-    <h2>Detalles</h2>
-    <p>📅 Fecha: 26 de Diciembre 2025</p>
-    <p>🚕 Uber: 7:30 PM</p>
-    <p>⏰ Hora: 8:00 PM</p>
-    <p>🍽️ Maruchans</p>
-    <p>* Prepara la cámara 📸</p>
-</div>
-
-<!-- Diapositiva 4 -->
-<div class="slide soft">
-    <h1>Gracias por cada momento juntos</h1>
-    <p>Gracias por estar a mi lado todo este tiempo</p>
-    <p>Te amo mucho mi Chico ❤️</p>
-</div>
-<!-- Diapositiva 5 - Aniversario -->
-<div class="slide fireworks-slide">
-    <canvas id="fireworks"></canvas>
-    <div class="anniversary-text">
-        🎆 Feliz 10 Aniversario 🎆
-        <span>Gracias por estos años increíbles juntos</span>
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitacion de Boda | Nayeli y Daniel</title>
+    <meta
+      name="description"
+      content="Invitacion digital de boda con agenda, ubicaciones, detalles y confirmacion de asistencia."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700&family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="paper-grain" aria-hidden="true">
+      <div class="star-layer layer-a">
+        <span class="star" style="--x: 8%; --y: 18%; --s: 0.9; --dur: 4.8s; --delay: 0.2s"></span>
+        <span class="star" style="--x: 22%; --y: 10%; --s: 1.2; --dur: 5.4s; --delay: 1.6s"></span>
+        <span class="star" style="--x: 35%; --y: 23%; --s: 1.4; --dur: 6.1s; --delay: 0.9s"></span>
+        <span class="star" style="--x: 52%; --y: 14%; --s: 0.95; --dur: 4.4s; --delay: 2.1s"></span>
+        <span class="star" style="--x: 69%; --y: 20%; --s: 1.15; --dur: 5.7s; --delay: 0.7s"></span>
+        <span class="star" style="--x: 84%; --y: 12%; --s: 1.05; --dur: 6.4s; --delay: 1.1s"></span>
+        <span class="star" style="--x: 13%; --y: 44%; --s: 1.25; --dur: 5.2s; --delay: 0.4s"></span>
+        <span class="star" style="--x: 33%; --y: 53%; --s: 0.85; --dur: 4.9s; --delay: 1.8s"></span>
+        <span class="star" style="--x: 47%; --y: 48%; --s: 1.3; --dur: 5.8s; --delay: 0.3s"></span>
+        <span class="star" style="--x: 65%; --y: 56%; --s: 1.1; --dur: 6.2s; --delay: 1.5s"></span>
+        <span class="star" style="--x: 81%; --y: 46%; --s: 1; --dur: 4.7s; --delay: 0.8s"></span>
+        <span class="star" style="--x: 92%; --y: 62%; --s: 1.35; --dur: 5.6s; --delay: 2.3s"></span>
+      </div>
+      <div class="star-layer layer-b">
+        <span class="star" style="--x: 5%; --y: 72%; --s: 1.15; --dur: 7.3s; --delay: 1.2s"></span>
+        <span class="star" style="--x: 16%; --y: 86%; --s: 0.95; --dur: 6.6s; --delay: 0.6s"></span>
+        <span class="star" style="--x: 30%; --y: 77%; --s: 1.4; --dur: 8.1s; --delay: 2.2s"></span>
+        <span class="star" style="--x: 45%; --y: 92%; --s: 1.2; --dur: 7.5s; --delay: 0.9s"></span>
+        <span class="star" style="--x: 58%; --y: 83%; --s: 1; --dur: 6.8s; --delay: 1.4s"></span>
+        <span class="star" style="--x: 71%; --y: 94%; --s: 1.35; --dur: 7.9s; --delay: 0.2s"></span>
+        <span class="star" style="--x: 82%; --y: 78%; --s: 1.05; --dur: 6.4s; --delay: 1.9s"></span>
+        <span class="star" style="--x: 94%; --y: 88%; --s: 1.25; --dur: 7.2s; --delay: 0.5s"></span>
+      </div>
     </div>
-</div>
 
-<script>
-// ===== CUENTA REGRESIVA =====
-const eventDate = new Date("2025-12-26T20:00:00").getTime();
+    <header class="site-header">
+      <a class="brand" href="#inicio">N y D</a>
+      <nav class="site-nav" aria-label="Secciones principales">
+        <a href="#agenda">Agenda</a>
+        <a href="#lugar">Lugar</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+    </header>
 
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = Math.abs(eventDate - now);
+    <main id="inicio">
+      <section class="hero section" data-reveal>
+        <div class="hero-copy">
+          <p class="kicker">Nos casamos</p>
+          <h1>
+            Nayeli <span class="and">&</span>
+            Daniel
+          </h1>
+          <p class="date-city">11 de abril de 2026 - Ciudad de México</p>
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          <div class="countdown" id="countdown" data-date="2026-04-11T14:00:00-06:00" aria-live="polite">
+            <div class="countdown-item">
+              <strong data-unit="days">--</strong>
+              <span>Dias</span>
+            </div>
+            <div class="countdown-item">
+              <strong data-unit="hours">--</strong>
+              <span>Horas</span>
+            </div>
+            <div class="countdown-item">
+              <strong data-unit="minutes">--</strong>
+              <span>Minutos</span>
+            </div>
+          </div>
 
-    document.getElementById("countdown").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#rsvp">Confirmar asistencia</a>
+            <a class="btn btn-ghost" href="#agenda">Ver itinerario</a>
+          </div>
+        </div>
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
+        <figure class="hero-portrait" data-reveal>
+          <img
+            id="couple-image"
+            src="assets/2f4c2f5f-c027-43cc-a6bc-b8296a1e1694.JPG"
+            alt="Ilustracion de los novios tomada de la invitacion fisica"
+          />
+          <div id="image-fallback" class="image-fallback" hidden>
+            <p>Agrega aqui tu ilustracion para conectar la web con la invitacion fisica:</p>
+            <code>assets/novios-ilustracion.png</code>
+          </div>
+          <figcaption>Donde tú estás, ahí está mi hogar</figcaption>
+        </figure>
+      </section>
 
-// ===== SLIDES AUTOMÁTICAS =====
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
+      <section id="historia" class="section" data-reveal>
+        <h2>Nuestra historia</h2>
+        <div class="story-grid">
+          <article class="paper-card story-card">
+            <figure class="story-media">
+              <img src="assets/historia-heladito.jpg" alt="Nayeli y Daniel en su primer helado en Valle de Bravo" loading="lazy" />
+            </figure>
+            <div class="story-content">
+              <p class="story-year">Abril 2015</p>
+              <h3>El primer heladito</h3>
+              <p>
+                Lo que comenzó en una charla camino al río en Valle de Bravo, se convirtió en una semilla que creció con el tiempo, el apoyo mutuo y muchas experiencias compartidas.
+              </p>
+            </div>
+          </article>
+          <article class="paper-card story-card">
+            <figure class="story-media">
+              <img src="assets/historia-propuesta.JPG" alt="Momento de la propuesta en Huasca de Ocampo" loading="lazy" />
+            </figure>
+            <div class="story-content">
+              <p class="story-year">Julio 2021</p>
+              <h3>La gran pregunta</h3>
+              <p>
+              En medio del bosque en Huasca de Ocampo, acompañados de Nena 🐾,  rodeados de naturaleza y magia, Dano se arrodilló y preguntó a Naye si quería ser su compañera de vida. Ella no entendió lo que estaba pasando, luego entonces conversamos hasta el amanecer, marcando el inicio de esta nueva etapa juntos.
+              </p>
+            </div>
+          </article>
+          <article class="paper-card story-card">
+            <figure class="story-media">
+              <img src="assets/historia-hogar.JPG" alt="Nayeli y Daniel celebrando su nuevo hogar en Ciudad de Mexico" loading="lazy" />
+            </figure>
+            <div class="story-content">
+              <p class="story-year">Noviembre 2022</p>
+              <h3>Un nuevo hogar</h3>
+              <p>
+                Construimos juntos un espacio donde nos sentimos seguros, comprendidos y amados, en nuestra amada ciudad de México y con la compañia de Nena.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-setInterval(() => {
-    slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add("active");
-}, 6000);
+      <section id="agenda" class="section" data-reveal>
+        <h2>Agenda del gran dia</h2>
+        <div class="schedule-list">
+          <article class="schedule-item">
+            <time datetime="14:00">14:00</time>
+            <div>
+              <h3>Coctel de bienvenida</h3>
+              <p></p>
+            </div>
+          </article>
+          <article class="schedule-item">
+            <time datetime="15:00">20:00</time>
+            <div>
+              <h3>Comida y brindis</h3>
+              <p>Salon principal</p>
+            </div>
+          </article>
+          <article class="schedule-item">
+            <time datetime="17:00">17:00</time>
+            <div>
+              <h3>Baile y fiesta</h3>
+              <p>Prepara tus mejores pasos.</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-// ===== CORAZONES FLOTANDO =====
-const background = document.getElementById("background");
+      <section id="lugar" class="section" data-reveal>
+        <h2>Como llegar</h2>
+        <div class="location-grid">
+          <article class="paper-card">
+            <h3>Celebración</h3>
+            <p>Multifamiliar Doctores, Ciudad de Mexico.</p>
+            <a class="text-link" href="https://maps.google.com" target="_blank" rel="noopener">Abrir mapa</a>
+          </article>
+        </div>
+        <div class="quick-notes">
+          <p><strong>Dress code:</strong>Casual/comodo, con colores primaverales</p>
+        </div>
+      </section>
 
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
-    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+      <section id="regalos" class="section" data-reveal>
+        <h2>Mesa de regalos</h2>
+        <p>Su compania es nuestro mejor regalo, pero si desean tener un detalle, aqui hay opciones.</p>
+        <div class="gift-actions">
+          <a class="btn btn-ghost" href="https://www.liverpool.com.mx" target="_blank" rel="noopener">Ver mesa en Liverpool</a>
+          <button class="btn btn-primary" id="copy-bank" type="button" data-bank="CLABE 012345678901234567 - Banco Ejemplo - Ana Perez">
+            Copiar datos para transferencia
+          </button>
+        </div>
+        <p id="copy-feedback" class="copy-feedback" aria-live="polite"></p>
+      </section>
 
-    background.appendChild(heart);
+      <section id="rsvp" class="section" data-reveal>
+        <h2>Confirma tu asistencia</h2>
+        <p>Por favor confirma antes del <strong>28 de marzo de 2026</strong>.</p>
 
-    setTimeout(() => {
-        heart.remove();
-    }, 10000);
-}
+        <form id="rsvp-form" class="rsvp-form" data-phone="525512345678">
+          <label>
+            Nombre completo
+            <input type="text" name="name" required placeholder="Tu nombre" />
+          </label>
 
-setInterval(createHeart, 400);
-</script>
-<script>
-// ===== FUEGOS ARTIFICIALES =====
-const canvas = document.getElementById("fireworks");
-const ctx = canvas.getContext("2d");
+          <label>
+            Nos acompanaras?
+            <select name="attending" required>
+              <option value="">Selecciona una opcion</option>
+              <option value="Si, con gusto">Si, con gusto</option>
+              <option value="No podre asistir">No podre asistir</option>
+            </select>
+          </label>
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+          <label>
+            Numero de asistentes
+            <input type="number" name="guests" min="1" max="6" value="1" required />
+          </label>
 
-let fireworks = [];
+          <label>
+            Restriccion alimentaria (opcional)
+            <input type="text" name="diet" placeholder="Ejemplo: vegetariano" />
+          </label>
 
-class Firework {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.particles = [];
-        for (let i = 0; i < 80; i++) {
-            this.particles.push({
-                x: x,
-                y: y,
-                angle: Math.random() * Math.PI * 2,
-                speed: Math.random() * 5 + 2,
-                alpha: 1,
-                color: `hsl(${Math.random() * 360},100%,60%)`
-            });
-        }
-    }
+          <label>
+            Cancion sugerida para la fiesta (opcional)
+            <input type="text" name="song" placeholder="Tu cancion favorita" />
+          </label>
 
-    update() {
-        this.particles.forEach(p => {
-            p.x += Math.cos(p.angle) * p.speed;
-            p.y += Math.sin(p.angle) * p.speed;
-            p.alpha -= 0.015;
-        });
-        this.particles = this.particles.filter(p => p.alpha > 0);
-    }
+          <button class="btn btn-primary" type="submit">Enviar RSVP por WhatsApp</button>
+        </form>
+      </section>
 
-    draw() {
-        this.particles.forEach(p => {
-            ctx.globalAlpha = p.alpha;
-            ctx.fillStyle = p.color;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-            ctx.fill();
-        });
-        ctx.globalAlpha = 1;
-    }
-}
+      <section id="faq" class="section" data-reveal>
+        <h2>Preguntas frecuentes</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Puedo llevar acompanante?</summary>
+            <p>Tu sobre fisico indica el numero exacto de lugares reservados para ti.</p>
+          </details>
+          <details>
+            <summary>Habra estacionamiento?</summary>
+            <p>Si, el jardin cuenta con estacionamiento con cupo limitado y valet parking.</p>
+          </details>
+          <details>
+            <summary>Que pasa si llego tarde?</summary>
+            <p>La ceremonia iniciara puntual, asi que recomendamos llegar con anticipacion.</p>
+          </details>
+        </div>
+      </section>
+    </main>
 
-function animateFireworks() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    fireworks.forEach(f => {
-        f.update();
-        f.draw();
-    });
-    fireworks = fireworks.filter(f => f.particles.length > 0);
-    requestAnimationFrame(animateFireworks);
-}
-animateFireworks();
+    <footer class="site-footer">
+      <p>Con carino, Nayeli y Daniel.</p>
+      <p class="edit-note">Template editable: actualiza nombres, fechas, enlaces y telefono en este archivo.</p>
+    </footer>
 
-setInterval(() => {
-    fireworks.push(
-        new Firework(
-            Math.random() * canvas.width,
-            Math.random() * canvas.height * 0.6
-        )
-    );
-}, 900);
-</script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
-    
