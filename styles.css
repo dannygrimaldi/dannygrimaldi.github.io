@@ -623,6 +623,7 @@ h2 {
   .paper-grain::before,
   .star-layer,
   .star,
+  .nav-deco,
   [data-reveal] {
     animation: none !important;
     transition: none !important;
