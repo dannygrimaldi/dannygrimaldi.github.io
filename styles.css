@@ -178,6 +178,7 @@ body {
   backdrop-filter: blur(10px);
   background: rgba(251, 248, 242, 0.82);
   border-bottom: 1px solid rgba(154, 120, 77, 0.2);
+  overflow: hidden;
 }
 
 .brand {
@@ -188,11 +189,17 @@ body {
   text-decoration: none;
 }
 
-.nav-deco {
-  width: 54px;
-  height: 54px;
+.site-header .nav-deco {
+  display: block;
+  width: 44px !important;
+  height: 44px !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
+  min-width: 44px;
+  min-height: 44px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid rgba(155, 92, 120, 0.55);
   box-shadow: 0 6px 18px rgba(113, 40, 76, 0.24);
   transform: rotate(-5deg);
@@ -668,10 +675,14 @@ h2 {
     gap: 0.5rem;
   }
 
-  .nav-deco {
-    width: 42px;
-    height: 42px;
-    border-radius: 11px;
+  .site-header .nav-deco {
+    width: 34px !important;
+    height: 34px !important;
+    max-width: 34px !important;
+    max-height: 34px !important;
+    min-width: 34px;
+    min-height: 34px;
+    border-radius: 10px;
   }
 
   .site-nav {
