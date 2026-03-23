@@ -171,8 +171,9 @@ body {
   top: 0;
   z-index: 20;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 0.9rem;
   padding: 0.9rem 1.2rem;
   backdrop-filter: blur(10px);
   background: rgba(251, 248, 242, 0.82);
@@ -187,9 +188,22 @@ body {
   text-decoration: none;
 }
 
+.nav-deco {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(155, 92, 120, 0.55);
+  box-shadow: 0 6px 18px rgba(113, 40, 76, 0.24);
+  transform: rotate(-5deg);
+  flex: 0 0 auto;
+  animation: navFloat 5.2s ease-in-out infinite;
+}
+
 .site-nav {
   display: flex;
   gap: 1rem;
+  margin-left: auto;
 }
 
 .site-nav a {
@@ -200,6 +214,16 @@ body {
 
 .site-nav a:hover {
   color: var(--accent);
+}
+
+@keyframes navFloat {
+  0%,
+  100% {
+    transform: rotate(-5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-3deg) translateY(-3px);
+  }
 }
 
 main {
@@ -640,14 +664,21 @@ h2 {
 @media (max-width: 600px) {
   .site-header {
     padding: 0.8rem 0.9rem;
+    gap: 0.5rem;
+  }
+
+  .nav-deco {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
   }
 
   .site-nav {
-    gap: 0.65rem;
+    gap: 0.5rem;
   }
 
   .site-nav a {
-    font-size: 0.83rem;
+    font-size: 0.8rem;
   }
 
   .section {
