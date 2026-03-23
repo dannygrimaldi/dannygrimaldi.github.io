@@ -33,14 +33,15 @@ body {
   pointer-events: none;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 22%, rgba(179, 219, 242, 0.38) 0%, rgba(179, 219, 242, 0) 36%),
-    radial-gradient(circle at 74% 28%, rgba(139, 221, 195, 0.33) 0%, rgba(139, 221, 195, 0) 40%),
-    radial-gradient(circle at 48% 72%, rgba(159, 196, 250, 0.32) 0%, rgba(159, 196, 250, 0) 43%),
-    radial-gradient(circle at 82% 84%, rgba(155, 198, 224, 0.23) 0%, rgba(155, 198, 224, 0) 36%),
-    linear-gradient(165deg, #071a34 0%, #123657 52%, #1a526f 100%);
+    radial-gradient(circle at 18% 22%, rgba(179, 219, 242, 0.56) 0%, rgba(179, 219, 242, 0) 38%),
+    radial-gradient(circle at 74% 28%, rgba(139, 221, 195, 0.48) 0%, rgba(139, 221, 195, 0) 42%),
+    radial-gradient(circle at 48% 72%, rgba(159, 196, 250, 0.44) 0%, rgba(159, 196, 250, 0) 45%),
+    radial-gradient(circle at 82% 84%, rgba(155, 198, 224, 0.36) 0%, rgba(155, 198, 224, 0) 38%),
+    radial-gradient(circle at 36% 52%, rgba(232, 118, 178, 0.24) 0%, rgba(232, 118, 178, 0) 40%),
+    linear-gradient(165deg, #041126 0%, #0f3052 50%, #185372 100%);
   animation: auroraShift 24s ease-in-out infinite alternate;
   z-index: -1;
-  opacity: 0.94;
+  opacity: 1;
 }
 
 .paper-grain::before {
@@ -48,10 +49,10 @@ body {
   position: absolute;
   inset: -12%;
   background:
-    radial-gradient(circle at 8% 20%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 25%),
-    radial-gradient(circle at 36% 62%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 30%),
-    radial-gradient(circle at 84% 38%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 28%);
-  filter: blur(22px);
+    radial-gradient(circle at 8% 20%, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0) 28%),
+    radial-gradient(circle at 36% 62%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 32%),
+    radial-gradient(circle at 84% 38%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 30%);
+  filter: blur(24px);
   animation: mistPulse 20s ease-in-out infinite alternate;
 }
 
@@ -60,11 +61,11 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at center, rgba(13, 31, 50, 0) 48%, rgba(5, 15, 30, 0.5) 100%),
+    radial-gradient(circle at center, rgba(13, 31, 50, 0) 44%, rgba(5, 15, 30, 0.6) 100%),
     repeating-linear-gradient(
       35deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      rgba(255, 255, 255, 0.02) 2px,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 2px,
       rgba(255, 255, 255, 0) 2px,
       rgba(255, 255, 255, 0) 6px
     );
@@ -177,10 +178,10 @@ body {
 
 @keyframes washDrift {
   0% {
-    transform: translate3d(-1.6%, -1.2%, 0) scale(1);
+    transform: translate3d(-2.4%, -1.8%, 0) scale(1);
   }
   100% {
-    transform: translate3d(1.4%, 1.6%, 0) scale(1.04);
+    transform: translate3d(2.1%, 2.2%, 0) scale(1.08);
   }
 }
 
@@ -231,10 +232,11 @@ main {
   margin: 2.4rem 0;
   padding: 2.3rem clamp(1.1rem, 3vw, 2.3rem);
   background:
-    radial-gradient(circle at 14% 22%, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0) 48%),
-    radial-gradient(circle at 86% 78%, rgba(246, 222, 241, 0.34), rgba(246, 222, 241, 0) 44%),
-    linear-gradient(148deg, rgba(255, 255, 255, 0.68), rgba(244, 236, 246, 0.56));
-  border: 1px solid rgba(220, 207, 191, 0.86);
+    radial-gradient(circle at 14% 22%, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 52%),
+    radial-gradient(circle at 86% 78%, rgba(246, 222, 241, 0.5), rgba(246, 222, 241, 0) 48%),
+    radial-gradient(circle at 58% 26%, rgba(164, 206, 228, 0.34), rgba(164, 206, 228, 0) 46%),
+    linear-gradient(148deg, rgba(255, 255, 255, 0.8), rgba(235, 224, 243, 0.66));
+  border: 1px solid rgba(220, 207, 191, 0.94);
   border-radius: 26px;
   box-shadow: 0 18px 42px rgba(12, 26, 44, 0.25);
   backdrop-filter: blur(2px) saturate(115%);
@@ -245,11 +247,11 @@ main {
   position: absolute;
   inset: -28%;
   background:
-    radial-gradient(circle at 28% 26%, rgba(120, 176, 210, 0.22), rgba(120, 176, 210, 0) 34%),
-    radial-gradient(circle at 74% 36%, rgba(185, 117, 156, 0.2), rgba(185, 117, 156, 0) 36%),
-    radial-gradient(circle at 60% 72%, rgba(142, 208, 186, 0.18), rgba(142, 208, 186, 0) 34%);
+    radial-gradient(circle at 28% 26%, rgba(120, 176, 210, 0.32), rgba(120, 176, 210, 0) 38%),
+    radial-gradient(circle at 74% 36%, rgba(185, 117, 156, 0.3), rgba(185, 117, 156, 0) 40%),
+    radial-gradient(circle at 60% 72%, rgba(142, 208, 186, 0.26), rgba(142, 208, 186, 0) 38%);
   mix-blend-mode: soft-light;
-  opacity: 0.7;
+  opacity: 0.92;
   pointer-events: none;
   animation: washDrift 26s ease-in-out infinite alternate;
 }
@@ -610,8 +612,9 @@ h2 {
 .rsvp-form select,
 .btn-ghost {
   background:
-    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0) 44%),
-    linear-gradient(155deg, rgba(255, 255, 255, 0.72), rgba(243, 236, 246, 0.58));
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 46%),
+    radial-gradient(circle at 84% 72%, rgba(200, 148, 182, 0.24), rgba(200, 148, 182, 0) 42%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.86), rgba(236, 224, 243, 0.7));
 }
 
 .faq-list summary {
