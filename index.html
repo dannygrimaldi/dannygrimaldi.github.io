@@ -49,6 +49,7 @@
       <nav class="site-nav" aria-label="Secciones principales">
         <a href="#agenda">Agenda</a>
         <a href="#lugar">Lugar</a>
+        <a href="#" data-open-video-modal>Ver video</a>
         <a href="#Asistencia">Confirmar Asistencia</a>
       </nav>
     </header>
@@ -81,6 +82,7 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="#Asistencia">Confirmar asistencia</a>
             <a class="btn btn-ghost" href="#agenda">Ver itinerario</a>
+            <button class="btn btn-ghost" type="button" data-open-video-modal>Ver video</button>
           </div>
         </div>
 
@@ -253,6 +255,26 @@
     <footer class="site-footer">
       <p>Con cariño, Nayeli y Daniel.</p>
     </footer>
+
+    <div id="video-modal" class="video-modal" hidden aria-hidden="true">
+      <div class="video-modal-backdrop" data-close-video-modal></div>
+      <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+        <button class="video-modal-close" type="button" aria-label="Cerrar video" data-close-video-modal>×</button>
+        <p id="video-modal-title" class="video-modal-title">Nuestro video</p>
+        <video
+          id="wedding-video"
+          class="video-modal-player"
+          controls
+          playsinline
+          muted
+          preload="metadata"
+          poster="assets/Principal.JPG"
+        >
+          <source src="assets/naye-danny.mp4" type="video/mp4" />
+          Tu navegador no soporta video HTML5.
+        </video>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

@@ -128,10 +128,75 @@ function initRsvpForm() {
   });
 }
 
+function initVideoModal() {
+  const modal = document.getElementById("video-modal");
+  const video = document.getElementById("wedding-video");
+
+  if (!modal || !video) {
+    return;
+  }
+
+  const openers = document.querySelectorAll("[data-open-video-modal]");
+  const closers = modal.querySelectorAll("[data-close-video-modal]");
+  const closeButton = modal.querySelector(".video-modal-close");
+  let lastFocused = null;
+
+  function playVideo() {
+    const maybePromise = video.play();
+    if (maybePromise && typeof maybePromise.catch === "function") {
+      maybePromise.catch(() => {
+        // Ignore autoplay restrictions; user can press play manually.
+      });
+    }
+  }
+
+  function openModal() {
+    lastFocused = document.activeElement;
+    modal.hidden = false;
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    video.currentTime = 0;
+    playVideo();
+    if (closeButton) {
+      closeButton.focus();
+    }
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    video.pause();
+    if (lastFocused && typeof lastFocused.focus === "function") {
+      lastFocused.focus();
+    }
+  }
+
+  openers.forEach((node) => {
+    node.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    });
+  });
+
+  closers.forEach((node) => {
+    node.addEventListener("click", closeModal);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) {
+      closeModal();
+    }
+  });
+
+  window.setTimeout(openModal, 500);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initReveal();
   initCountdown();
   initImageFallback();
   initCopyBank();
   initRsvpForm();
+  initVideoModal();
 });

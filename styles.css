@@ -365,6 +365,72 @@ h1 {
   border-color: var(--line);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.video-modal[hidden] {
+  display: none;
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 10, 19, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.video-modal-dialog {
+  position: relative;
+  width: min(980px, 94vw);
+  border-radius: 20px;
+  border: 1px solid rgba(220, 207, 191, 0.9);
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 42%),
+    linear-gradient(155deg, rgba(252, 247, 252, 0.9), rgba(237, 226, 245, 0.86));
+  box-shadow: 0 26px 52px rgba(4, 8, 20, 0.5);
+}
+
+.video-modal-title {
+  margin: 0 0 0.7rem;
+  font-family: var(--title-font);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.55rem;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(193, 15, 95, 0.12);
+  color: var(--accent);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.video-modal-player {
+  width: 100%;
+  max-height: 76vh;
+  display: block;
+  border-radius: 14px;
+  background: #000;
+}
+
 .hero-portrait {
   margin: 0;
   display: grid;
@@ -706,6 +772,23 @@ h2 {
 
   .site-nav a {
     font-size: 0.8rem;
+  }
+
+  .video-modal-dialog {
+    width: 96vw;
+    padding: 0.65rem;
+    border-radius: 16px;
+  }
+
+  .video-modal-title {
+    font-size: 0.95rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .video-modal-close {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
   }
 
   .section {
