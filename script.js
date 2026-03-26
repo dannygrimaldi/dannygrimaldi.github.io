@@ -189,6 +189,8 @@ function initVideoModal() {
       closeModal();
     }
   });
+
+  window.setTimeout(openModal, 500);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
