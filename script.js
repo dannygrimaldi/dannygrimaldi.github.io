@@ -155,6 +155,7 @@ function initVideoModal() {
     modal.hidden = false;
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
+    video.muted = false;
     video.currentTime = 0;
     playVideo();
     if (closeButton) {
@@ -188,8 +189,6 @@ function initVideoModal() {
       closeModal();
     }
   });
-
-  window.setTimeout(openModal, 500);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
